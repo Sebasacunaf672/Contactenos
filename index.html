@@ -1,0 +1,169 @@
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta http-equiv="Content-Type" content=text/html; charset=UTF-8? />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" type="text/css" href="Home.css" />
+	<title>Contáctenos</title>
+        <!-- Bootstrap CSS -->  
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>		
+	<script src="https://smtpjs.com/v3/smtp.js"></script>
+	<script type="text/javascript">
+		function sendEmail() {
+		
+		var correoCliente = document.getElementById('correo').value
+		var mensaje = document.getElementById('mensaje').value
+		var nombre = document.getElementById('nombre').value
+		var telefono = document.getElementById('validar').value
+		
+		if( nombre == ""){
+			alert("Debe ingresar un nombre");
+		}else{
+			if( correoCliente==""){
+				alert("Debe ingresar un correo electrónico");
+			}else{
+				if(telefono=="")
+				{
+					alert("Debe ingresar un número telefónico");
+				}else{
+					if(mensaje==""){
+						alert("Debe ingresar un mensaje");
+					}
+					else{
+						Email.send({
+						SecureToken:"3887b299-3814-4331-9c64-920ad94530dc",
+						From: correoCliente,
+						To: "sacunafdz672@gmail.com",
+						Subject: "Nombre: " + nombre + " Teléfono: "+telefono,
+						Body: mensaje
+						})	
+							.then(function (message) {
+							alert("Correo Electrónico enviado con éxito")
+						});	
+						alert("Correo electrónico enviado con éxito")
+					}
+				}
+			}
+		}
+        }
+	</script>
+  </head>
+  <body style="background-color: #fcf7c7;">
+		<center>
+			<header >
+			<div id="Cabecera"style="height:42%;">
+			<div id="ulogo">
+			<div id="hlogo">
+			<img src="logo.jpg" width="20%" height="100%">
+			</div>
+			</div>
+			</div>
+		</header>
+		<div id="Navegador">
+		<nav class="navbar navbar-expand-md navbar-dark bg-pink">    
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse" >
+            <div class="navbar-nav text-center">
+                <a href="Prueba.html" class="nav-item nav-link">INICIO</a>
+				<a href="Queques.html" class="nav-item nav-link">QUEQUES</a>
+                <a href="CupCakes.html" class="nav-item nav-link">CUPCAKES</a>
+				<a href="Postres.html" class="nav-item nav-link">POSTRES</a>
+				<a href="Pancitos.html" class="nav-item nav-link">PANCITOS</a>
+				<a href="Ubicacion.html" class="nav-item nav-link">UBICACIÓN</a>
+				<a href="Acerca de Nosotros.html" class="nav-item nav-link">ACERCA DE NOSOTROS</a>
+		  </div>
+        </div>
+    </nav>
+	</div>
+		<div class="container contact-form" style="width:50%;">
+		<form method="post" class="form_contact">
+		<h2>En este espacio puede realizar cotizaciones, pedidos y consultas. </h2>
+         <div class="form-group">
+         	<label>Nombre:</label>
+         	<input type="text" id="nombre" name="nombre" required class="form-control" >
+         </div>
+		 <p>Género:<br>
+			<input type="radio" name="hm" value="h" required> Masculino
+			<input type="radio" name="hm" value="m" required> Femenino
+		</p>
+		<div class="form-group">
+	   <label> Correo Electrónico: </label>
+		<input id="correo" required  class="form-control">
+		<span id="correoOK"></span>  
+        </div>
+		
+		<div class="form-group">
+	   <label> Número telefónico:</label>
+		<input type="text" required class="form-control" id="validar" >
+		<span id="telefono"></span>  
+        </div>		
+
+		<div class="form-group">
+        <label>Fecha de Nacimiento:</label>
+		<input type='date' id='edad' required name="fecha" class="form-control" >
+		<br>
+		<center><button type="button" onclick="CalculaEdad();" class="btn btn-light" >Verificar edad</button><center>
+		<p id= "Edad"></p>
+         </div>
+		 
+
+         <div class="form-group">
+         	<label>Detalle de pedido:</label>
+         	<textarea  rows="3" id="mensaje" name="mensaje"  required class="form-control"></textarea>
+         </div>
+		 
+         <div class="form-group">
+         		 <center> <button type="submit" class="btn btn-light" onclick="sendEmail();">Enviar pedido</button></center>
+         </div>
+		 <h5>Gracias por su consulta, le estaremos respondiendo en breve.</h5>
+		 <h6>Le contactaremos por correo electrónico y por teléfono.</h6>
+		 
+		</form>
+		</div>
+		<footer>
+		<center>
+		<div id="Pie"> 
+				<h4>Visite nuestras redes sociales</h4>
+				<img src="instagram.png"style="height:40%"><a href="https://www.instagram.com/quequesrosi/?hl=es-la">@quequesrosi</a>
+				<img src="face.png"style="height:40%"><a href="https://www.facebook.com/QuequesRosi">@Queques R Rosi</a>
+				<br>
+				Autor:<a href="Autor.html"> Sebastián Acuña Fernández</a>
+		</div>
+		</center>
+	</footer>
+	<script src="js/Edad.js.js"></script>
+	<script>
+	document.getElementById('correo').addEventListener('input', function() {
+    campo = event.target;
+    valido = document.getElementById('correoOK');
+        
+    emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+    //Se muestra un texto a modo de ejemplo, luego va a ser un icono
+    if (emailRegex.test(campo.value)) {
+      valido.innerText = "Correo Electrónico válido";
+    } else {
+      valido.innerText = "Correo Electrónico incorrecto";
+    }
+});
+</script>
+<script>
+$(function(){
+    $('#validar').keydown(function(event){
+        //alert(event.keyCode);
+        if((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105) && event.keyCode !==190  && event.keyCode !==110 && event.keyCode !==8 && event.keyCode !==9  ){
+            return false;
+        }
+    });
+});
+
+</script>
+
+  </body>
+</html>
